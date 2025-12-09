@@ -226,7 +226,7 @@
 </head>
 <body>
     <div class="container" id="container">
-        <!-- Login Form -->
+        
         <div class="form-container login-container">
             <h2>Welcome Back</h2>
             
@@ -267,7 +267,7 @@
             </div>
         </div>
         
-        <!-- Signup Form -->
+        
         <div class="form-container signup-container">
             <h2>Create Account</h2>
             
@@ -308,7 +308,7 @@
     </div>
 
     <script>
-        // DOM Elements
+        
         const container = document.getElementById('container');
         const toSignupBtn = document.getElementById('to-signup');
         const toLoginBtn = document.getElementById('to-login');
@@ -319,7 +319,7 @@
         const loginToggle = document.getElementById('login-toggle');
         const signupToggle = document.getElementById('signup-toggle');
         
-        // Toggle between Login and Signup forms
+        
         toSignupBtn.addEventListener('click', () => {
             container.classList.add('active');
             clearMessages();
@@ -330,7 +330,6 @@
             clearMessages();
         });
         
-        // Password visibility toggle
         loginToggle.addEventListener('click', () => {
             togglePasswordVisibility('login-password', loginToggle);
         });
@@ -339,11 +338,11 @@
             togglePasswordVisibility('signup-password', signupToggle);
         });
         
-        // Form submissions
+        
         loginForm.addEventListener('submit', handleLogin);
         signupForm.addEventListener('submit', handleSignup);
         
-        // Social login buttons
+        
         document.querySelectorAll('.social-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const platform = this.classList[1];
@@ -351,7 +350,7 @@
             });
         });
         
-        // Functions
+        
         function togglePasswordVisibility(passwordFieldId, toggleIcon) {
             const passwordField = document.getElementById(passwordFieldId);
             const icon = toggleIcon.querySelector('i');
@@ -373,14 +372,12 @@
             const username = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
             
-            // Simple validation
             if (!username || !password) {
                 showMessage('Please fill in all fields', 'error', loginMessage);
                 return;
             }
             
-            // In a real application, you would send this data to a server
-            // For demo purposes, we'll simulate a successful login
+            
             if (password.length < 6) {
                 showMessage('Password must be at least 6 characters long', 'error', loginMessage);
                 return;
@@ -388,10 +385,10 @@
             
             showMessage('Login successful! Redirecting...', 'success', loginMessage);
             
-            // Reset form
+            
             loginForm.reset();
             
-            // Simulate redirect
+            
             setTimeout(() => {
                 showMessage('Welcome back!', 'success', loginMessage);
             }, 1000);
@@ -405,39 +402,36 @@
             const password = document.getElementById('signup-password').value;
             const confirmPassword = document.getElementById('signup-confirm-password').value;
             
-            // Validation
+            
             if (!username || !email || !password || !confirmPassword) {
                 showMessage('Please fill in all fields', 'error', signupMessage);
                 return;
             }
             
-            // Email validation
+            
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showMessage('Please enter a valid email address', 'error', signupMessage);
                 return;
             }
             
-            // Password validation
+            
             if (password.length < 8) {
                 showMessage('Password must be at least 8 characters long', 'error', signupMessage);
                 return;
             }
             
-            // Check if passwords match
+            
             if (password !== confirmPassword) {
                 showMessage('Passwords do not match', 'error', signupMessage);
                 return;
             }
             
-            // In a real application, you would send this data to a server
-            // For demo purposes, we'll simulate a successful signup
+            
             showMessage('Account created successfully!', 'success', signupMessage);
             
-            // Reset form
             signupForm.reset();
             
-            // Automatically switch to login form after successful signup
             setTimeout(() => {
                 container.classList.remove('active');
                 showMessage('Please login with your new account', 'success', loginMessage);
@@ -449,7 +443,6 @@
             element.className = `message ${type}`;
             element.style.display = 'block';
             
-            // Auto-hide success messages after 5 seconds
             if (type === 'success') {
                 setTimeout(() => {
                     element.style.display = 'none';
@@ -462,15 +455,16 @@
             signupMessage.style.display = 'none';
         }
         
-        // Demo credentials for testing
+        
         window.addEventListener('DOMContentLoaded', () => {
-            // Auto-fill demo credentials for testing
-            document.getElementById('login-username').value = 'demo_user';
-            document.getElementById('login-password').value = 'password123';
             
-            // Show a welcome message
+            document.getElementById('login-username').value = 'Mamush';
+            document.getElementById('login-password').value = 'mash123';
+            
+            
             showMessage('Try demo credentials: demo_user / password123', 'success', loginMessage);
         });
     </script>
 </body>
 </html>
+
